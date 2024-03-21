@@ -195,6 +195,8 @@ const char* inet_ntop(int af, const void*  src, char* dst, socklen_t cnt);
 // type指定服务类型 SOCK_STREAM (TCP协议) SOCK_DGRAM(UDP协议)
 // protocol设置为默认的0
 // 成功返回socket文件描述符(linux一切皆文件), 失败返回-1
+// 自linux内核版本2.6.17起，type参数可以接受上述服务类型与下面两个重要的标志相与的值：SOCK_NONBLOCK和SOCK_CLOEXEC
+// 他们分别表示将新创建的socket设为非阻塞的，以及用fork创建子进程时在子进程中关闭该socket
 int socket(int domain, int type, int protocol);
 
 // socket为socket文件描述符
