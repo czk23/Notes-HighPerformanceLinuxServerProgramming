@@ -208,6 +208,7 @@ int bind(int socket, const struct sockaddr* my_addr, socklen_t addrlen);
 // backlog表示队列最大的长度
 int listen(int socket, int backlog);
 // 接受连接 失败返回-1 成功时返回socket
+// accpet函数只是从监听队列中取出连接，不在乎取出的连接处于什么状态(比如ESTABLISHED和CLOSE_WAIT状态)
 int accept(int sockfd, struct sockaddr* addr, socklen_t* addrlen)
 ```
 客户端
