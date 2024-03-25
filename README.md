@@ -325,6 +325,10 @@ int getsockopt(int sockfd, int level, int option_name, void* option_value,
 						socklen_t restrict option_len);
 int setsockopt(int sockfd, int level, int option_name, void* option_value, 
 						socklen_t restrict option_len);
+// 对服务器而言，有部分socket选项只能在调用listen系统调用之前针对监听socket设置才有效，这是因为连接socket只能由accept系统调用返回，而accept从listen监听队列中接受的连接
+// 至少已经完成了TCP三次握手的前两个步骤，但有的socket选项却应该在TCP同步报文段中设置；Linux给出的解决方案是：对监听socket设置的这些选项，accept返回的连接socket将自动继承这些选项。
+// 对客户端而言，有些socket选项应该在connect系统调用之前设置。
+
 ```
 
 | SO_REUSEADDR | 重用本地地址      | sock被设置此属性后, 即使sock在被bind()后处于TIME_WAIT状态, 此时与他绑定的socket地址依然能够立即重用来绑定新的sock        |
