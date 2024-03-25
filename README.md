@@ -291,7 +291,7 @@ struct msghdr
      * msg_iov指向的数组指定, 称为分散读(scatter read)  ---对于sendmsg而言, msg_iovlen块的分散内存中
      * 的数据将一并发送称为集中写(gather write);
 	*/
-	struct iovec* msg_iov;
+	struct iovec* msg_iov;  /* 相当于一个iovec数组 */
 	int msg_iovlen; /* 分散内存块的数量*/
 	void* msg_control; /* 指向辅助数据的起始位置*/
 	socklen_t msg_controllen; /* 辅助数据的大小*/
