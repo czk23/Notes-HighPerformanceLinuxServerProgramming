@@ -607,6 +607,7 @@ sendfile函数
 ```c
 #include <sys/sendfile.h>
 // offset为指定输入流从哪里开始读, 如果为NULL 则从开头读取
+// out_fd必须是一个socket，in_socket必须指向真实的文件
 ssize_t sendfile(int out_fd, int in_fd, off_t* offset, size_t count);
 
 O_RDONLY只读模式
