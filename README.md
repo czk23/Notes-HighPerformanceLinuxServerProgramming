@@ -735,6 +735,13 @@ int main(int argc, char* argv[])
     exit(0);
 }
 ```
+**tee 函数**
+tee函数在两个管道文件描述符之间复制数据，也是零拷贝操作  
+```c
+#include <fcntl.h>
+ssize_t tee(int fd_in, int fd_out, size_t len, unsigned int flags);
+// 函数的参数含义和splice函数相同，但fd_in和fd_out必须都是管道文件描述符
+```
 
 **select 函数**
 select函数在第二个参数列表 可读的时候返回
