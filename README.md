@@ -681,6 +681,7 @@ int munmap(void* start, size_t length);
 // - SPLICE_F_NONBLOCK 非阻塞splice操作, 但会受文件描述符自身的阻塞
 // - SPLICE_F_MORE 给内核一个提示, 后续的splice调用将读取更多的数据???????
 ssize_t splice(int fd_in, loff_t* off_in, int fd_out, loff_t* off_out, size_t len, unsigned int flags);
+// 使用时要在第一行加上宏定义#define _GNU_SOURCE
 
 // 使用splice函数  实现echo服务器
 int main(int argc, char* argv[])
