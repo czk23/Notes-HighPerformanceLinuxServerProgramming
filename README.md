@@ -519,6 +519,10 @@ int pipe(int fd[2]);
 ```
 ```c
 // 双向管道
+// AF = Address Family
+// PF = Protocol Family
+// AF_INET = PF_INET
+// 指明协议时用PF，设置地址时用AF
 // 第一个参数为 协议PF_UNIX(书上是AF_UNIX)感觉这里指明协议使用PF更好一些
 #include <sys/types.h>
 #include <sys/socket.h>
