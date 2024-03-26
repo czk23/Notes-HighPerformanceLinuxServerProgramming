@@ -665,6 +665,8 @@ int lstat(const char *path, struct stat *buf);
 // - MAP_SHARED 进程间共享内存, 对内存的修改反映到映射文件中
 // - MAP_PRIVATE 为调用进程私有, 对该内存段的修改不会反映到文件中
 // - MAP_ANONUMOUS 不是从文件映射而来, 内容被初始化为0, 最后两个参数被忽略
+// fd参数是被映射文件对应的文件描述符
+// offset参数设置从文件的何处开始映射
 // 成功返回区域指针, 失败返回 -1
 void* mmap(void* start, size_t length, int port, int flags, int fd, off_t offset);
 // 成功返回0 失败返回-1
